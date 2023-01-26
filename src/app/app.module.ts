@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { fakeBackendProvider } from './_helpers/fake-backend';
 import { JwtInterceptor } from './_helpers/jwt.interceptors';
+import { AlertComponent } from './_components/alert.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +22,7 @@ import { JwtInterceptor } from './_helpers/jwt.interceptors';
   providers: [
   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

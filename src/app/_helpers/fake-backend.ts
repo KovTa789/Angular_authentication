@@ -132,6 +132,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
 export const fakeBackendProvider = {
     provide: HTTP_INTERCEPTORS,
-    userClass: FakeBackendInterceptor,
+    useClass: FakeBackendInterceptor,
     multi: true
 }
